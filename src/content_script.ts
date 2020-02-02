@@ -36,13 +36,13 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         [image1, image2, image3, image4].forEach(image => {
             $(image).on('click', () => {
                 const src = image.getAttribute('src');
-                if(window.prompt(firstName)){
+                if(window.confirm("Is this name correct? " + firstName)){
                     map[firstName] = src;
                 }else {
                     map[secondName] = src;
                 }
 
-                if(window.prompt("Save changes?")){
+                if(window.confirm("Save changes?")){
                     chrome.storage.sync.set({
                         data: map
                       }

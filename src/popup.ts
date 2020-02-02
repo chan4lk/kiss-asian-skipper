@@ -4,20 +4,28 @@ import * as $ from "jquery";
 let count = 0;
 
 const map = {
-  "cow, grass": "/Special/CapImg/Q2ZoamhKZVJPUWtvMmh2R2NxWTRQNHFQWkhpVVZlU2VQVHNRcCtheGdpczNTbVVsTjZRbEhCWGZEL2NWYUZvSg==.jpg",
+  "pig, puzzle": "/Special/CapImg/c01DUVFmY3ZHb3RLWkpqVkdBR0tPOCtQeWQrTFJCVVA3azEyVDJBWm9tNkNEZlhCVU41ZU1rZmF1K2VaTmpESg==.jpg",
+  "emotion, surprised": "/Special/CapImg/N0FEUUVGUk5UVExWelIrQzc1WVBBTkY2dHZMTkdNMXRDWlNMOU9TZVA0RlRNZXdSUTVaVHltNVJsdmFKd0hZeVJ0eFpuYmlmUEpjV3VMZC9LZzZiTFE9PQ==.jpg",
   "boy, balloon": "/Special/CapImg/UmdRK3E4bnJWbkZuM3lHbmNhK3pFZGxmRStzTndady9BV3NlZTVRd1lPb1NOdzl4d3BuQlFCTjl6WVJmelVxVg==.jpg",
   "boy, basketball": "/Special/CapImg/NTVMZkhCYUZST0ZINlBoWkhyRFV1b2pHc3JXaWlaLzlPTVd0V2hQZ281M09jaXQ4NlFQcTdjZG1KVXBydlYyWA==.jpg",
   "boy, doctor": "/Special/CapImg/WHh1L1l1Q20vdXRXU1VDaElEQnVOWlJXNzdvNi9tZVpxOXhSSEFVL3oyNkQ0eU8yZ0RINlZGTnIrb3ViZ3B2dg==.jpg",
   "boy, fish": "/Special/CapImg/TTdkOGdmVngzSHpDNStncENwaDlvZ3ZURmlVbllUSnQ1aGdweHdreHNqSFR3ZUdGdXlLcnR2Sk50akF2cHhPNw==.jpg",
   "car, acura" : "/Special/CapImg/QXhUcm83MEVGNmljMkpSemtTMlhGUHZrK2xjd1I0M3ZQTVJiTjVDUHJqbUd6dVRXWW43Qjgrb3VsSGYzVW03eg==.jpg",
   "car, lotus": "/Special/CapImg/T0MweUVEeHVoajg0b2djUldFWFZ1THlUTGlnVVB2YkZsWDZDc2V6R1kxcFJXY3lxdW9TUm1CYm9WZFJISXREcg==.jpg",
+  "car, taxi": "/Special/CapImg/MExTUTRUVXNOMnl5MWRaaWZUOW5IUUM0aXlNSEl2emVQRk82NTBtRWd2VnpxRUxVMHFrWllMaktJU2FrRDZsdA==.jpg",
   "cat, cup": "/Special/CapImg/dFg2THkvVFVwSktXMXhIdk91N2hNNkppQnlHSy9zbEV4bGVFNnlIVjlsWWZBWFdMNy9lREhXMmVHUGRRWHRXYg==.jpg",
+  "cat, ice cream": "/Special/CapImg/Q3R3QS9NL2paWWwyUmN1Yks3QUNiZzNzRGpCR28yT1pESGx5RjJ4VEFkSEYzL0xPVFQzalByQjl6aEY1SENkdA==.jpg",
+  "cat, pizza": "/Special/CapImg/WXltMzZIM1I3MWpRTTJjbDZyTnhvbG5zQzcyb2NmakVXbFlWN3l4V0MzWWlVSWlTb0llSFVNcHdFUW9CV3hqZQ==.jpg",
   "couple, hug": "/Special/CapImg/dXhMQVFRcEt4cmtLaUJnWm51RDU3ZjVrcm5Ub2hUc3EvRDlBL0FIaHRnQjVYNHpZLzhRQlNFMlBHVzhuWmpXcA==.jpg",
   "cow, flower": "/Special/CapImg/SDY0eWl5dnZwWHYvMnJZaEVzQVA1Zm93QWN4SVhWWm84dFFuKzdzOVpCUTlCMFA5R2ZtaWg3ZTc2ZEE5Y21ycA==.jpg",
+  "cow, grass": "/Special/CapImg/Q2ZoamhKZVJPUWtvMmh2R2NxWTRQNHFQWkhpVVZlU2VQVHNRcCtheGdpczNTbVVsTjZRbEhCWGZEL2NWYUZvSg==.jpg",
   "cow, moo": "/Special/CapImg/NjRCeVpHSThCblVtOE1GaS81YVRRd3plcWplMkgySUQ1SGZWeHpHaXlMYmFJVFR3NWRJUE1DeGlYQWFpTEUrMA==.jpg",
+  "dog, cup": "/Special/CapImg/WW11eDFxWUcwUXJrRHlHbXBLVGtTZzA4N3ludk94aUFyRk5EYWdHaG4vWElhUzVSZWkzL250V3E3YVA3eW5ybg==.jpg",
+  "fox, yawn": "/Special/CapImg/MEZtVURQT0xSeW1zOEZickxtZXB5MEQ3QnZVSmNLR05JN2pkN04xa3kvcVdwMGUrZytPVUFZYmdmSDdvOUNpOQ==.jpg",
   "girl, balloon": "/Special/CapImg/M3FBMWMyT1RDTU9rUGFreTVwbXcrRThhS2VieGdyRmpZbFJUc3k3ZGh0S2c0ZDNvWVFuSXM5MFJFODgyQ2NxMw==.jpg",
   "girl, candy": "/Special/CapImg/NHhrRDZZMzc3QXhkWm5hbm5panMwWExVU2JaZjd2cVRGQ1NTdi9yQ1EzbkltcmlBV0hNaEF0S0xFdTAvcTkweA==.jpg",
   "girl, glasses": "/Special/CapImg/OTFsREVxL1o5WFhNZk8rVEVzMXdKRVZ1RW1HdG5JYXUvRFdkOTJpOGVuNTVVT0RLanB3S2xzUGZjdjVjeXdCcw==.jpg",
+  "girl, nurse": "/Special/CapImg/MzRVaWsxU1hJZnZoa0NPdktkQW1qeGVWR1pBcTBFUUQxSk5SS1dhUEhhSDBNWlpCUmZrQW5GWWZoRGlYVHdvUA==.jpg",
   "monkey, cloud": "/Special/CapImg/R2pOZUdmQ1crNDdNQy82Q3MzV1QycWthSkNVR1Y2NEROSlJ0ejlUVGs0Sy9tdU1zNld3VFVlbXFUUXhnL3N0UA==.jpg",
   "penguin, boxing": "/Special/CapImg/WnpENi9vWmJBMkY4MWRYNFpiYTVzVDFzVHZWeFV3dDFwMG4wQS90RXU4N09PS0FPM0lMSHhVSkM0SVN2VXN3SQ==.jpg",
   "pig, taking pictures": "/Special/CapImg/Y1hlZmVoVm9tSnVNSmt4Yk1jenlNN0JzbFU5R3pNemx1RVB3UXNDdlpSNndGenRsTU5Ga2tJcWk4RGJYeEdjZQ==.jpg",
@@ -65,6 +73,7 @@ $(function() {
           tabs[0].id,
           {
             skip: true,
+            capture: false,
             config
           },
           function(msg) {
@@ -88,6 +97,7 @@ $(function() {
           tabs[0].id,
           {
             capture: true,
+            skip: false,
             config
           },
           function(msg) {
